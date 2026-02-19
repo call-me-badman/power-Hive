@@ -1,9 +1,10 @@
 import { Router } from "express";
-import{si}
+import { signUp,signIn } from "../controller/auth.controller";
+
 
 const authRouter=Router()
 
-authRouter.post('/sign-up',async (req,res)=>{})
-authRouter.get('/sign-in',async(req,res)=>{res.send("signed in ")})
+authRouter.post('/sign-up',signUp)
+authRouter.get('/sign-in',signIn)
 
 export default authRouter

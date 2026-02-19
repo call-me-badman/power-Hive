@@ -2,6 +2,7 @@ import express from "express"
 import { config } from "dotenv"
 import { connectTodb } from "./database/database.js"
 import authRouter from "./routes/authRouter.js"
+import { authorize } from "./middleware/auth.middle.js"
 config()
 const app= express()
 
@@ -13,6 +14,7 @@ app.use('/api/v1/auth',authRouter)
 app.get('/',async (req,res)=>{
 res.send('welcome to my power hive app');
 })
+app.use()
 const PORT= process.env.PORT
 
 app.listen(PORT, async()=>{
