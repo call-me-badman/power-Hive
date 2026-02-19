@@ -1,5 +1,6 @@
 import express from "express"
 import { config } from "dotenv"
+import { connectTodb } from "./database/database.js"
 import authRouter from "./routes/authRouter.js"
 config()
 const app= express()
@@ -14,6 +15,7 @@ res.send('welcome to my power hive app');
 })
 const PORT= process.env.PORT
 
-app.listen(PORT,()=>{
+app.listen(PORT, async()=>{
     console.log(`listening on ${PORT}`)
+await connectTodb();
 })
