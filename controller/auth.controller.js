@@ -2,53 +2,8 @@ import User from "../models/user.model.js"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 
-const JWT_SECRET = process.env.JWT_SECRET
-const JWT_EXPIRES = process.env.JWT_EXPIRES || "1d"
-
-export const signUp = async (req, res, next) => {
-  try {
-    const { username, email, password, role } = req.body
-
-    const existingUser = await User.findOne({ email })
-    if (existingUser) {
-      const error = new Error("User already exists")
-      error.statusCode = 409
-      throw error
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10)
-
-    const newUser = await User.create({
-      username,
-      email,
-      password: hashedPassword,
-      role
-    })
-
-    const token = jwt.sign(
-      { userId: newUser._id },
-      JWT_SECRET,
-      { expiresIn: JWT_EXPIRES }
-    )
-
-    res.cookie("token", token, {
-      httpOnly: true,
-      sameSite: "strict",
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 24 * 60 * 60 * 1000
-    })
-
-    res.status(201).json({
-      success: true,
-      message: "User registered successfully",
-      user: newUser,
-      token
-    })
-
-  } catch (error) {
-    next(error)
-  }
-}
+const JWT_SECRET=process.env.JWT_SECRET
+const JWT_EXPIRES=process.env.JWT_EXPIRES
 
 export const signIn = async (req, res, next) => {
   try {
@@ -80,10 +35,16 @@ export const signIn = async (req, res, next) => {
       secure: process.env.NODE_ENV === "production",
       maxAge: 24 * 60 * 60 * 1000
     })
-
-    res.status(200).json({
+if(user.role=="admin"){
+ return res.status(200).send({
+    success:true,
+    message:"welcome admin",
+    data:{token,user}
+  })
+}
+  return  res.status(200).json({
       success: true,
-      message: "Signed in successfully",
+      message: "now it time to work",
       data: { token, user }
     })
 

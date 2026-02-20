@@ -1,9 +1,51 @@
 import User from "../models/user.model.js"
-
+import bcrypt from "bcryptjs"
+import jwt from "jsonwebtoken"
 
 //users controll
+const JWT_SECRET = process.env.JWT_SECRET
+const JWT_EXPIRES = process.env.JWT_EXPIRES || "1d"
 
+export const createUser = async (req, res, next) => {
+  try {
+    const { username, email, password, role } = req.body
 
+    const existingUser = await User.findOne({ email })
+    if (existingUser) {
+      res.status(400).send({
+        success:false,
+        message:"the user already exists"
+      })  
+      const error = new Error("User already exists")
+      throw error
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10)
+
+    const newUser = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+      role
+    })
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 24 * 60 * 60 * 1000
+    })
+
+    res.status(201).json({
+      success: true,
+      message: "User registered successfully",
+      user: newUser,
+    })
+
+  } catch (error) {
+    next(error)
+  }
+}
 export const getUsers = async (req, res, next) => {
   try {
     const users = await User.find({ role: { $ne: "admin" } }).select("-password")
