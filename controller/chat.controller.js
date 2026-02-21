@@ -1,0 +1,29 @@
+import Message from "../models/message.model.js";
+import { io } from "../app.js";
+
+// Call this once in app.js or server entry point, not as a route handler
+export const initSocket = () => {
+    io.on("connection", (socket) => {
+        console.log("a user connected", socket.id);
+
+        socket.on("chatMessage", async (data) => {
+            try {
+                const { sender, message } = data;
+
+                const newMessage = new Message({ sender, message });
+                await newMessage.save();
+
+            
+                const populated = await newMessage.populate("sender", "username email");
+
+                io.emit("newMessage", populated);
+            } catch (error) {
+                console.error("Error saving message:", error);
+            }
+        });
+
+        socket.on("disconnect", () => {
+            console.log("a user disconnected", socket.id);
+        });
+    });
+};
