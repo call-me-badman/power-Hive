@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import PHiveApp from "../apps/p_hive/App";
-import LearningApp from "../apps/learning/App";
+import PHiveApp from "../../apps/p_hive/App";
+import LearningApp from "../../apps/learning/App";
 
 function Router() {
   return (
