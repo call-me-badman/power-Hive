@@ -1,15 +1,13 @@
 {
   "name": "powerhive",
   "version": "1.0.0",
-  "description": "PowerHive - Smart Electrical Monitoring System with Frontend and Backend",
-  "type": "module",
-  "main": "app.js",
+  "description": "PowerHive – full stack smart electrical monitoring system",
   "keywords": [
     "powerhive",
     "electricity",
     "monitoring",
     "safety",
-    "smart-system"
+    "smart"
   ],
   "homepage": "https://github.com/ishemagurnaud0-maker/powerhive_V1#readme",
   "bugs": {
@@ -64,5 +62,6 @@
   },
   "overrides": {
     "vite": "npm:rolldown-vite@7.2.5"
-  }
+  },
+  "main": "eslint.config.js"
 }
