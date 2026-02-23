@@ -1,6 +1,6 @@
 import Message from "../models/message.model.js";
 import { io } from "../app.js";
-
+import mongoose from "mongoose";
 export const initSocket = () => {
     io.on("connection", (socket) => {
         console.log("a user connected", socket.id);
