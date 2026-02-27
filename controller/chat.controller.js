@@ -6,9 +6,9 @@ export const initSocket = () => {
 
         socket.on("chatMessage", async (data) => {
             try {
-                const { sender, message } = data;
+                const { sender, message, receiver } = data;
 
-                const newMessage = new Message({ sender, message });
+                const newMessage = new Message({ sender, message,receiver });
                 await newMessage.save();
 
             
