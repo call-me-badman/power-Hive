@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>admin panel</h1>
+  <p id="adminMessages"></p>
+  <input type="text" name="" id="messageinput" placeholder="Type your message here">
+  <button id="sendMessage">Send Message</button>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+  <script>
+
+const socket=io("http://localhost:4000")
+const roomId="user_123"
+
+
+socket.on('connect',()=>{
+  console.log('connected to server')
+  socket.emit('joinRoom',roomId)
+    console.log(`joined room ${roomId}`)
+})
+  socket.on("chatMessage",(message)=>{
+    console.log(`received message: ${message.message}`)
+    const adminMessages=document.getElementById('adminMessages')
+    adminMessages.innerHTML+=`<p>${message.message} by ${message.sender}</p>`
+  })
+  const sendMessageButton=document.getElementById('sendMessage')
+  sendMessageButton.addEventListener('click',()=>{
+    const messageInput=document.getElementById('messageinput')
+    const message=messageInput.value
+     socket.emit("chatMessage", {
+        roomId,
+        message,
+        sender: "admin"
+      });
+    messageInput.value=''
+  })
+
+
+  </script>
+</body>
+</html>
