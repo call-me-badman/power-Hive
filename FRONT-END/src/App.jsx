@@ -14,6 +14,7 @@ import OverviewCharts from "./components/dashboard/OverviewCharts";
 import Login from "./pages/Login";
 // import Signup from "./pages/Signup";
 import EnergyUsage from "./pages/EnergyUsage";
+import Devices from "./pages/Devices";
 
 import "./App.css";
 
@@ -65,6 +66,9 @@ function App() {
 
         {/* Energy Usage */}
         <Route path="/energy-usage" element={<EnergyUsage />} />
+
+        {/* Devices */}
+        <Route path="/devices" element={<Devices />} />
       </Route>
 
       {/* Redirect Root to Home or Dashboard */}

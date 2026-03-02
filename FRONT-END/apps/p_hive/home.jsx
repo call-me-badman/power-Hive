@@ -22,7 +22,6 @@ const LandingPage = () => {
             </p>
             <div className="lp-hero-actions">
               <Link to="/login" className="lp-btn lp-btn-primary">Get Started</Link>
-              <a className="lp-btn lp-btn-outline">Learn More</a>
             </div>
           </div>
         </section>
