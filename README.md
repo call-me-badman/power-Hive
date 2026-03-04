@@ -1,96 +1,137 @@
-# React + Vite
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=36&duration=3000&pause=1000&color=F5A623&center=true&vCenter=true&width=500&lines=Power+Hive" alt="Power Hive" />
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <strong>A smart power and electricity monitoring system — from source to end user.</strong>
+</p>
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-# powerhive_ v1
-
-PowerHive – Ideation Phase Presentation (Body Section)
-
-1. Problem Statement
-
-• Many households face electrical hazards due to poor knowledge, faulty wiring, and lack of monitoring.
-
-• Rising incidents of home electrical fires and shocks show the need for a safer, smarter system.
-
-• Homeowners lack visibility into their electrical ecosystem.
-
-3. Proposed Solution: PowerHive
-• A smart monitoring system for household electrical installations.
-
-• Uses sensors, embedded systems, and real-time alerts.
-
-• Helps users detect faults early and understand their electricity usage.
-
-5. Key Features
-
-• Real-time monitoring of voltage, current, and temperature.
-
-• Automated fault detection (overloads, overheating, short circuits).
-
-• Mobile or web dashboard for user interaction.
-
-• Alerts sent instantly when danger is detected.
-
-• Educational tips for electrical safety.
-
-7. Impact
-• Reduces preventable electrical accidents.
-
-• Increases household safety and awareness.
-
-• Aligns with Rwanda’s NST2 goals (smart infrastructure and ICT development).
-
-• Supports SDG 7 (Affordable and Clean Energy) and SDG 9 (Industry, Innovation, Infrastructure).
-
-9. Target Users
-• Households
-
-• Small businesses
-
-• Electricians and technicians
-
-• Future extension: HEP stations for advanced monitoring
-
-11. Project Feasibility
-• Uses affordable hardware (sensors, Arduino/ESP32).
-
-• Can be tested on a small prototype.
-
-• Scalable in future versions.
-
-13. Conclusion
-• PowerHive is a practical and impactful solution.
-• It strengthens electrical safety and empowers users with real-time awareness.
+<p align="center">
+  <img src="https://img.shields.io/badge/PowerHive-Electricity%20Monitoring-yellow?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Rwanda%20Coding%20Academy-Nyabihu%2C%20Rwanda-blue?style=for-the-badge" />
+</p>
 
 ---
 
-# React + Vite
+## About
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**PowerHive** is a real-time power and electricity monitoring system designed to track and manage electrical installations across an entire network — from the primary power source all the way down to individual end users.
 
-Currently, two official plugins are available:
+The system provides administrators with complete visibility and control over the electrical grid, enabling smarter energy management, faster fault detection, and more efficient power distribution.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **End-to-End Monitoring** — Track electricity flow from the source through transmission lines to end users in real time
+- **Live Dashboard** — Visual representation of power usage, load levels, and consumption metrics
+- **Alerts & Notifications** — Instant alerts for outages, overloads, or anomalies detected in the system
+- **Admin Control Panel** — Admins can manage users, nodes, and monitor the entire installation network
+- **Usage Analytics** — Historical data and trends for better decision-making and energy planning
+- **Role-Based Access** — Controlled access levels to ensure secure and structured system management
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## System Architecture
 
+```
+Power Source
+     │
+     ▼
+Distribution Network
+     │
+     ├── Node A ──► End Users
+     ├── Node B ──► End Users
+     └── Node C ──► End Users
+          │
+          ▼
+     PowerHive Dashboard (Admin)
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- A modern web browser
+- Database (e.g., PostgreSQL / MySQL)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/irakoze-olga/power-hive.git
+
+# Navigate into the project directory
+cd power-hive
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+
+# Start the development server
+npm run dev
+```
+
+### Configuration
+
+Edit the `.env` file with your database credentials and system settings before launching.
+
+---
+
+## Team
+
+Built by students at **Rwanda Coding Academy**, Nyabihu, Rwanda.
+
+> We are young innovators using technology to solve real-world energy challenges in our communities.
+
+| Role | Description |
+|------|-------------|
+| Developers | Full-stack development & system integration |
+| Designers | UI/UX design & data visualization |
+| System Admins | Network configuration & deployment |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React.js + CSS |
+| Backend | Node.js |
+| Database | MongoDB |
+
+---
+
+## Project Status
+
+This project is currently under **active development** as part of our coursework and community innovation initiative at Rwanda Coding Academy.
+
+---
+
+## Contributing
+
+We welcome contributions! If you'd like to collaborate:
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m "Add your feature"`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a Pull Request
+
+---
+
+## Contact
+
+For inquiries or collaboration opportunities, reach out via GitHub Issues or through **Rwanda Coding Academy**, Nyabihu, Rwanda.
+
+---
+
+<p align="center">
+  Made with care by students of <strong>Rwanda Coding Academy</strong> · Nyabihu, Rwanda
+</p>
