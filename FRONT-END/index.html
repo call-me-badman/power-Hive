@@ -9,5 +9,25 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      (function() {
+  var btn = document.createElement('div');
+  btn.innerHTML = '⚡';
+  btn.style.cssText = 'position:fixed;bottom:8px;right:24px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#10b981,#0d9488);color:white;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;box-shadow:0 4px 16px rgba(16,185,129,0.4);z-index:9999;transition:transform 0.2s;';
+  btn.onmouseover = function() { btn.style.transform = 'scale(1.1)'; };
+  btn.onmouseout = function() { btn.style.transform = 'scale(1)'; };
+  
+  var frame = document.createElement('iframe');
+  frame.src = 'https://power-hive-ai.base44.app/embed-chat';
+  frame.style.cssText = 'position:fixed;bottom:76px;right:24px;width:400px;height:600px;border:none;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.16);z-index:9998;display:none;';
+  
+  btn.onclick = function() {
+    frame.style.display = frame.style.display === 'none' ? 'block' : 'none';
+  };
+  
+  document.body.appendChild(frame);
+  document.body.appendChild(btn);
+})();
+    </script>
   </body>
 </html>

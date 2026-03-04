@@ -24,8 +24,9 @@ function Sidebar() {
           <li
             key={item.path}
             className={(location.pathname.startsWith(item.path) || (item.path === "/home" && location.pathname === "/")) ? "active" : ""}
+            style={{ padding: 0 }}
           >
-            <Link to={item.path} style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <Link to={item.path} style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '10px', padding: '12px', width: '100%', boxSizing: 'border-box' }}>
               {item.icon}
               {item.name}
             </Link>

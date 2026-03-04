@@ -5,7 +5,17 @@ import { User, Lock, Eye, EyeOff } from "lucide-react";
 function Login() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [userId, setUserId] = useState("");
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleLogin = () => {
+    if (userId.trim()) {
+      localStorage.setItem("powerHiveUser", userId.trim());
+    } else {
+      localStorage.setItem("powerHiveUser", "Guest");
+    }
+    navigate("/dashboard");
+  };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -29,6 +39,8 @@ function Login() {
               type="text"
               placeholder="User ID"
               style={styles.input}
+              value={userId}
+              onChange={(e) => setUserId(e.target.value)}
             />
             <User size={20} color="#64748b" style={styles.inputIcon} />
           </div>
@@ -61,7 +73,7 @@ function Login() {
           </div>
 
           <button
-            onClick={() => navigate("/dashboard")}
+            onClick={handleLogin}
             style={{
               ...styles.button,
               backgroundColor: isHovered ? "#2563eb" : "transparent",

@@ -1,31 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Alerts() {
-    const alerts = [
-        { id: 1, type: 'warning', message: 'High load detected on main circuit', time: '10 mins ago' },
-        { id: 2, type: 'critical', message: 'Voltage drop below 210V in Wing A', time: '25 mins ago' },
-        { id: 3, type: 'info', message: 'Scheduled maintenance at 02:00 PM', time: '1 hour ago' },
-        { id: 4, type: 'warning', message: 'Unusual energy spike in Storage 2', time: '3 hours ago' },
-    ];
+  const [alerts, setAlerts] = useState([
+    { id: 1, type: 'warning', message: 'High load detected on main circuit', time: '10 mins ago' },
+    { id: 2, type: 'critical', message: 'Voltage drop below 210V in Wing A', time: '25 mins ago' },
+    { id: 3, type: 'info', message: 'Scheduled maintenance at 02:00 PM', time: '1 hour ago' },
+    { id: 4, type: 'warning', message: 'Unusual energy spike in Storage 2', time: '3 hours ago' },
+  ]);
 
-    return (
-        <div className="alerts-container">
-            <div className="alerts-header">
-                <h4>Recent Alerts 🔔</h4>
-                <button className="clear-btn">Clear All</button>
-            </div>
-            <div className="alerts-list">
-                {alerts.map((alert) => (
-                    <div key={alert.id} className={`alert-item ${alert.type}`}>
-                        <div className="alert-content">
-                            <span className="alert-message">{alert.message}</span>
-                            <span className="alert-time">{alert.time}</span>
-                        </div>
-                    </div>
-                ))}
-            </div>
+  const handleClearAll = () => {
+    setAlerts([]);
+  };
 
-            <style>{`
+  return (
+    <div className="alerts-container">
+      <div className="alerts-header">
+        <h4>Recent Alerts 🔔</h4>
+        <button className="clear-btn" onClick={handleClearAll}>Clear All</button>
+      </div>
+      <div className="alerts-list">
+        {alerts.length > 0 ? (
+          alerts.map((alert) => (
+            <div key={alert.id} className={`alert-item ${alert.type}`}>
+              <div className="alert-content">
+                <span className="alert-message">{alert.message}</span>
+                <span className="alert-time">{alert.time}</span>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div style={{ textAlign: 'center', padding: '20px', color: '#64748b', fontSize: '14px' }}>
+            No new alerts.
+          </div>
+        )}
+      </div>
+
+      <style>{`
         .alerts-container {
           flex: 1;
           background: #e8ebf3;
@@ -107,8 +117,8 @@ function Alerts() {
           color: #64748b;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 }
 
 export default Alerts;

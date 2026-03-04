@@ -4,40 +4,16 @@ import PHiveApp from "../apps/p_hive/App";
 import LearningApp from "../apps/learning/App";
 
 import Sidebar from "./components/dashboard/Sidebar";
-import Topbar from "./components/dashboard/Topbar";
-import StatCard from "./components/dashboard/StatCard";
-import ReadingsTable from "./components/dashboard/ReadingsTable";
-import Alerts from "./components/dashboard/Alerts";
-import OverviewCharts from "./components/dashboard/OverviewCharts";
-
 
 import Login from "./pages/Login";
 // import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
 import EnergyUsage from "./pages/EnergyUsage";
 import Devices from "./pages/Devices";
+import Reports from "./pages/Reports";
+import SystemLogs from "./pages/SystemLogs";
 
 import "./App.css";
-
-/* DASHBOARD CONTENT */
-function DashboardContent() {
-  return (
-    <div className="main">
-      <Topbar />
-      <div className="stats">
-        <StatCard title="Voltage" value="230 V" />
-        <StatCard title="Current" value="12.4 A" />
-        <StatCard title="Power" value="2.85 kW" />
-        <StatCard title="Energy Today" value="18.2 kWh" />
-        <StatCard title="Power Factor" value="0.92" />
-      </div>
-      <div className="content">
-        <ReadingsTable />
-        <Alerts />
-      </div>
-      <OverviewCharts />
-    </div>
-  );
-}
 
 /* SHARED LAYOUT */
 function Layout() {
@@ -62,13 +38,19 @@ function App() {
 
       <Route element={<Layout />}>
         {/* Dashboard */}
-        <Route path="/dashboard" element={<DashboardContent />} />
+        <Route path="/dashboard" element={<Dashboard />} />
 
         {/* Energy Usage */}
         <Route path="/energy-usage" element={<EnergyUsage />} />
 
         {/* Devices */}
         <Route path="/devices" element={<Devices />} />
+
+        {/* Reports */}
+        <Route path="/reports" element={<Reports />} />
+
+        {/* System Logs */}
+        <Route path="/system-logs" element={<SystemLogs />} />
       </Route>
 
       {/* Redirect Root to Home or Dashboard */}
