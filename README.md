@@ -133,5 +133,5 @@ For inquiries or collaboration opportunities, reach out via GitHub Issues or thr
 ---
 
 <p align="center">
-  Made with care by students of <strong>Rwanda Coding Academy</strong> · Nyabihu, Rwanda
+  Made with care by students of <strong>Rwanda Coding Academy</strong> · 
 </p>
